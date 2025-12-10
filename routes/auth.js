@@ -12,7 +12,7 @@ const signupSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
   name: Joi.string().min(2).required(),
-  role: Joi.string().valid("admin", "user", "trainer").default("user"),
+  role: Joi.string().valid("admin", "user", "doctor").default("user"),
 });
 
 const generateJWT = (user) => {

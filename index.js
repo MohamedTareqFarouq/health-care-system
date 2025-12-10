@@ -4,13 +4,9 @@ import path from "path";
 import { config } from "dotenv";
 import dbConnection from "./db/dbConnection.js";
 
-<<<<<<< HEAD
 
 import appointmentRouter from "./routes/appointmentRoutes.js";
 import authRouter from "./routes/auth.js";
-=======
-import appointmentRouter from "./routes/appointmentRoutes.js";
->>>>>>> 8d40e6cca70f7cd630eaf5246e16c29ef2114770
 
 
 config();

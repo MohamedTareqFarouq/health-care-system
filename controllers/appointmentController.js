@@ -1,13 +1,16 @@
 import appointment from "../db/models/appointment.js";
 
-export const bookAppointment = async (req, res) => {
+export const bookAppointment = async (req, res, next) => {
     try {
         console.log("Booking appointment with data:", req.body);
-        const { patientName, doctorName, appointmentDate, reason, additionalNotes } = req.body;
-
+        const { doctorId, appointmentDate, reason, additionalNotes } = req.body;
+        
+        const patientId = req.user.id;
+        console.log("Authenticated user ID:", patientId); 
+        
         const newAppointment = new appointment({
-            patientName,
-            doctorName,
+            patient: patientId,
+            doctor: doctorId,
             appointmentDate,
             reason,
             additionalNotes
@@ -16,6 +19,6 @@ export const bookAppointment = async (req, res) => {
         await newAppointment.save();
         res.status(201).json({ message: "Appointment booked successfully", appointment: newAppointment });
     } catch (error) {
-        res.status(500).json({ message: "Error booking appointment", error: error.message });
+        next(error);
     }
 }
