@@ -41,6 +41,34 @@ Response: {
 
 
 
+/** get appointments for patient/doctor/admin: **/
+
+TYPE: GET /appointments
+
+Response: {
+    "appointments": [
+        {
+            "_id": "693d6c1033484a560e0b3b46",
+            "patient": {
+                "_id": "6939ece88809d401a992613a",
+                "name": "mohamed"
+            },
+            "doctor": {
+                "_id": "6939ef6a56b0e9d42eab2666",
+                "name": "ahmed"
+            },
+            "appointmentDate": "2025-12-25T00:00:00.000Z",
+            "reason": "To have a medical opinion on a certain disease case",
+            "additionalNotes": "any additional notes...",
+            "status": "pending",
+            "createdAt": "2025-12-13T13:37:20.391Z",
+            "updatedAt": "2025-12-13T13:37:20.391Z",
+            "__v": 0
+        }
+    ]
+}
+
+
 
 /** Make appointment: **/
 
