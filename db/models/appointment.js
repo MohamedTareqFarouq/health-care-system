@@ -39,7 +39,30 @@ const appointmentSchema = new mongoose.Schema({
         type: String,
         enum: ["pending", "scheduled", "completed", "canceled"],
         default: "pending"
-    }
+    },
+    statusHistory: [
+        {
+            status: {
+                type: String,
+                enum: ["pending", "scheduled", "completed", "canceled"],
+                required: true
+            },
+            reason: {
+                type: String,
+                trim: true,
+                maxlength: 500
+            },
+            changedAt: {
+                type: Date,
+                default: Date.now
+            },
+            changedBy: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+                required: true
+            }
+        }
+    ]
 }, {
     timestamps: true,
 }

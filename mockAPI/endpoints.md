@@ -160,3 +160,46 @@ Response: {
         "__v": 0
     }
 }
+
+
+
+/** Cancel appointment: **/
+
+TYPE: POST /appointments/book
+
+Body: {
+    "appointmentId": "693d6ffd894a41bcec5ee20c",
+    "reason": "urgent issues!"  
+}
+
+Response: {
+    "message": "Appointment cancelled successfully",
+    "appointment": {
+        "_id": "693d6c1033484a560e0b3b46",
+        "patient": "6939ece88809d401a992613a",
+        "doctor": "6939ef6a56b0e9d42eab2666",
+        "appointmentDate": "2025-12-25T00:00:00.000Z",
+        "reason": "To have a medical opinion on a certain disease case",
+        "additionalNotes": "any additional notes...",
+        "status": "cancelled",
+        "createdAt": "2025-12-13T13:37:20.391Z",
+        "updatedAt": "2025-12-15T15:23:43.331Z",
+        "__v": 0,
+        "statusHistory": [
+            {
+                "status": "cancelled",
+                "reason": "urgent issues!",
+                "changedBy": "6939ef6a56b0e9d42eab2666",
+                "_id": "6940264932adcdfc3e6cb59b",
+                "changedAt": "2025-12-15T15:16:25.627Z"
+            },
+            {
+                "status": "cancelled",
+                "reason": "urgent issues!",
+                "changedBy": "6939ef6a56b0e9d42eab2666",
+                "_id": "694027ff825391bb5f66c120",
+                "changedAt": "2025-12-15T15:23:43.341Z"
+            }
+        ]
+    }
+}
